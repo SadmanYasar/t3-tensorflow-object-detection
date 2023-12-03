@@ -3,6 +3,7 @@ import { useEffect, useState, useRef } from "react";
 import * as cocoSsd from "@tensorflow-models/coco-ssd";
 import * as tf from "@tensorflow/tfjs";
 import Webcam from "react-webcam";
+import { UserButton } from "@clerk/nextjs";
 
 export default function Home() {
   const webcamRef = useRef<Webcam | null>(null);
@@ -107,8 +108,11 @@ export default function Home() {
         <meta name="description" content="Sadman Yasar Sayem" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* <header>
+        <UserButton afterSignOutUrl="/" />
+      </header> */}
       <main className="flex min-h-screen flex-col bg-gray-800">
-        <div className="w-full relative max-w-xl mx-auto">
+        <div className="relative mx-auto w-full max-w-xl">
           <div className="container absolute top-0">
             {!model && <div className="text-2xl text-white">Loading</div>}
             <Webcam id="img" ref={webcamRef} />
